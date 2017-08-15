@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="css/bootstrap.css">
+          <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  
+<script>
+$(document).ready(function(){
+  cargar("customers");
+
+});
+  function cargar(id){
+    //swicht con opc
+    
+    $("#div1").load(id);
+  }
+
+</script>
+    </head>
+    <body>
+        
+        
+<div class="container">
+
+    <div class="row">
+    
+        <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Tablas</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a  onclick="cargar('customers')" >Customers</a></li>
+      <li><a onclick="cargar('employess')" >Employees</a></li>
+     <!-- <li><a href="custom.php" target="iframe_a">OrderDetails</a></li> -->
+      <li><a onclick="cargar('orders')" >Orders</a></li>
+     <!-- <li><a href="film_category.php" target="iframe_a">Payments</a></li> -->
+      <li><a onclick="cargar('pl')">ProductLine</a></li>
+      <li><a onclick="cargar('product')" >Products</a></li>
+      
+    </ul>
+  </div>
+</nav>
+        
+        
+        
+<div class="container"><div class="row"><div class="col-xs-12">
+        <div id="div1"  ></div>
+</div></div></div>
+
+
+    <!--    <button>Get External Content</button>
+    <iframe src="customers" height="500" width="1200" name="iframe_a" frameborder="0">
+    </iframe> -->
+
+
+      </div>    
+      </div>    
+    </body>
+</html>
