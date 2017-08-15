@@ -18,7 +18,7 @@ import modelo.CustomersFacadeLocal;
 
 /**
  *
- * @author MiguelAngel
+ * @author Andrea 
  */
 public class customers extends HttpServlet {
     @EJB
@@ -34,6 +34,8 @@ public class customers extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    //Este metodo crea variables para cachar datos 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String a = request.getParameter("1");
