@@ -19,7 +19,7 @@ import modelo.OrdersFacadeLocal;
 
 /**
  *
- * @author MiguelAngel
+ * @author MiguelAngel, Iobana Denis, Andrea
  */
 public class orders extends HttpServlet {
     @EJB
@@ -33,6 +33,11 @@ public class orders extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     */
+    
+    /**
+     * @param b,c,d,e,f,g son parametros que se necesitan para el nuevo objeto de la entidad
+     * @param opc, eli son las opciones que se pueden relizar
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -54,8 +59,10 @@ Date date = new Date();
             
             int ai=Integer.parseInt(a);
            int a2=Integer.parseInt(g); 
-           
+/*Se crea el nuevo objeto de la entidad Orders, necesita parametros declarados anteriormente*/                      
             entidades.Orders p1=new Orders(ai, date, date, e, a2);
+/*si la opcion es editar, se instancia el metodo edit del modelo OrdersFacadeLocal.java*/        
+            
         
             if(opc.equals("editar")){
 //                customersFacade.remove(ec); 
@@ -64,6 +71,7 @@ Date date = new Date();
         try (PrintWriter out = response.getWriter()) {
         out.println("<script> window.location=\"index.html\"; </script>");
         }
+/*en caso contrario, se instancia el metodo create del modelo OrdersFacadeLocal.java*/                                     
             }else{
                ordersFacade.create(p1);
                                response.setContentType("text/html;charset=UTF-8");
@@ -78,6 +86,7 @@ Date date = new Date();
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+/*definicion del html de la pagina*/                        
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -111,7 +120,10 @@ Date date = new Date();
             out.println("<th>Eliminar</th>");
             out.println("</tr>");
             
-            
+/**
+* Se llaman todos los registros para mostrarlos en una tabla
+* @return todos los datos que son almacenados en la BD
+*/            
             List<entidades.Orders> c1= ordersFacade.findAll();
             for (int i = 0; i < c1.size(); i++) {
                 
@@ -140,6 +152,7 @@ Date date = new Date();
                 out.println("</td>");
    
                 out.println("<td>");
+                /*definicion del formulario para insertar*/                 
                 out.println("<form action=\"addOrder.jsp\">\n" +
 "<input type=\"hidden\" name=\"a\" value=\""+c1.get(i).getOrderNumber()+"\" />\n" +
 "<input type=\"hidden\" name=\"b\" value=\""+c1.get(i).getOrderDate()+"\" />\n" +
@@ -154,6 +167,7 @@ Date date = new Date();
                 out.println("</td>");
                 
                                 out.println("<td>");
+/*definicion del formulario para eliminar*/                                
                 out.println("<form action=\"deleteOrder\">\n" +
 "<input type=\"hidden\" name=\"a\" value=\""+c1.get(i).getOrderNumber()+"\" />\n" +
 "<input type=\"hidden\" name=\"b\" value=\""+c1.get(i).getOrderDate()+"\" />\n" +
