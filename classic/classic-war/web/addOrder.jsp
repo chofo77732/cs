@@ -35,6 +35,10 @@
           <form action="orders" method="post">
               
  
+            
+  /**
+     * Creacion de tabla con parametros a,b,c,d,e,f,g,h del nuevo objeto de la entidad    
+     */
 
               
     <table style="border: 1px solid black" class="table table-bordered table-responsive">
@@ -46,7 +50,7 @@
       </tr>
       <tr>
         <td>orderDate</td>
-        <td><input type="text" name="2" value=<%= b %>></td>
+        <td><input type="text" name="2" value=<%= b %>></td>// En en apartado values se invoca el parametro del  objeto.
       </tr>
             <tr>
         <td>requireDate</td>
