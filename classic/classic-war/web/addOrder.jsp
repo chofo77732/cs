@@ -18,7 +18,9 @@
   <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
-        
+       /**
+     * @param a,b,c,d,e,f,g,h son parametros que se necesitan para el nuevo objeto de la entidad    
+     */
           <% String a = request.getParameter("a"); %>
     <% String b = request.getParameter("b"); %>
     <% String c = request.getParameter("c"); %>
@@ -40,7 +42,7 @@
       <tr>
         <td>orderNumber</td>
       
-        <td><input type="text" name="1" value=<%= a %>></td>
+        <td><input type="text" name="1" value=<%= a %>></td>// En en apartado values se invoca el parametro del  objeto.
       </tr>
       <tr>
         <td>orderDate</td>
