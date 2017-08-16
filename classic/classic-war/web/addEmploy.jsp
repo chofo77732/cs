@@ -1,9 +1,8 @@
 <%-- 
-    Document   : addEmploy
-    Created on : 10/08/2017, 09:33:31 AM
-    Author     : Iobana Denis
+    Document   : addCustom
+    Created on : 9/08/2017, 12:53:19 AM
+    Author     : MiguelAngel, Iobana, Andrea
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,7 +17,9 @@
   <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
-        
+        /**
+     * @param a,b,c,d,e,f,g,h son parametros que se necesitan para el nuevo objeto de la entidad    
+     */
           <% String a = request.getParameter("a"); %>
     <% String b = request.getParameter("b"); %>
     <% String c = request.getParameter("c"); %>
@@ -33,7 +34,10 @@
         
           <form action="employess" method="post">
               
- 
+ /**
+     * Creacion de tabla con parametros a,b,c,d,e,f,g,h del nuevo objeto de la entidad    
+     */
+
 
               
     <table style="border: 1px solid black" class="table table-bordered table-responsive">
@@ -41,7 +45,7 @@
       <tr>
         <td>employeeNumber</td>
       
-        <td><input type="text" name="1" value=<%= a %>></td>
+        <td><input type="text" name="1" value=<%= a %>></td>// En en apartado values se invoca el parametro del  objeto.
       </tr>
       <tr>
         <td>LastName</td>
