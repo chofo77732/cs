@@ -1,7 +1,7 @@
 <%-- 
     Document   : addpl
     Created on : 9/08/2017, 10:01:08 PM
-    Author     : MiguelAngel
+    Author     : MiguelAngel,Andrea,Iobana
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -19,6 +19,10 @@
     </head>
     <body>
         
+        /**
+     * @param a,b,c,d,e,f,g,h son parametros que se necesitan para el nuevo objeto de la entidad    
+     */
+        
           <% String a = request.getParameter("a"); %>
     <% String edi = request.getParameter("edi"); %>
 
@@ -27,14 +31,16 @@
           <form action="pl" method="post">
               
  
-
+ /**
+     * Creacion de tabla con parametros a,b,c,d,e,f,g,h del nuevo objeto de la entidad    
+     */
               
     <table style="border: 1px solid black" class="table table-bordered table-responsive">
       
       <tr>
         <td>ProductLine</td>
       
-        <td><input type="text" name="1" value=<%= a %>></td>
+        <td><input type="text" name="1" value=<%= a %>></td>// En en apartado values se invoca el parametro del  objeto.
       </tr>
       <tr>
         <td>textDescription</td>
