@@ -18,7 +18,7 @@ import modelo.ProductlinesFacadeLocal;
 
 /**
  *
- * @author MiguelAngel
+ * @author MiguelAngel, Iobana Denis, Andrea
  */
 public class pl extends HttpServlet {
     @EJB
@@ -33,6 +33,10 @@ public class pl extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    /**
+     * @param a parametro que se necesita para el nuevo objeto de la entidad
+     * @param opc, eli son las opciones que se pueden relizar
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                         String a = request.getParameter("1");
@@ -45,10 +49,10 @@ public class pl extends HttpServlet {
         
         if(a!=null && !a.equals("")){
             
-
+/*Se crea el nuevo objeto de la entidad ProductLines, necesita parametros declarados anteriormente*/                        
             
             entidades.Productlines p1=new Productlines(a);
-        
+/*si la opcion es editar, se instancia el metodo edit del modelo ProductLinesFacadeLocal.java*/                
             if(opc.equals("editar")){
 //                customersFacade.remove(ec); 
                 productlinesFacade.edit(p1);
@@ -56,6 +60,7 @@ public class pl extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
         out.println("<script> window.location=\"index.html\"; </script>");
         }
+/*en caso contrario, se instancia el metodo create del modelo ProductLinesFacadeLocal.java*/                                     
             }else{
                productlinesFacade.create(p1);
                response.setContentType("text/html;charset=UTF-8");
@@ -69,6 +74,7 @@ public class pl extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+/*definicion del html de la pagina*/                        
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -101,7 +107,10 @@ public class pl extends HttpServlet {
             out.println("<th>Eliminar</th>");
             out.println("</tr>");
             
-            
+/**
+* Se llaman todos los registros para mostrarlos en una tabla
+* @return todos los datos que son almacenados en la BD
+*/               
             List<entidades.Productlines> c1= productlinesFacade.findAll();
             for (int i = 0; i < c1.size(); i++) {
                 
@@ -121,6 +130,7 @@ public class pl extends HttpServlet {
                 out.println("</td>");
                 
                 out.println("<td>");
+ /*definicion del formulario para insertar*/                
                 out.println("<form action=\"addpl.jsp\">\n" +
 "<input type=\"hidden\" name=\"a\" value=\""+c1.get(i).getProductLine()+"\" />\n" +
 "<input type=\"hidden\" name=\"edi\" value=\"editar\" />\n" +
@@ -129,6 +139,7 @@ public class pl extends HttpServlet {
                 out.println("</td>");
                 
                 out.println("<td>");
+/*definicion del formulario para eliminar*/                 
                 out.println("<form action=\"deletepl\">\n" +
 "<input type=\"hidden\" name=\"a\" value=\""+c1.get(i).getProductLine()+"\" />\n" +
 "<input type=\"hidden\" name=\"edi\" value=\"editar\" />\n" +
