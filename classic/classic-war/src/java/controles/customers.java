@@ -18,7 +18,7 @@ import modelo.CustomersFacadeLocal;
 
 /**
  *
- * @author Andrea 
+ * @author MiguelAngel, Iobana Denis, Andrea 
  */
 public class customers extends HttpServlet {
     @EJB
@@ -35,6 +35,10 @@ public class customers extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     
+    /**
+     * @param a,b,c,d,e,f,g,h son parametros que se necesitan para el nuevo objeto de la entidad
+     * @param opc, eli son las opciones que se pueden relizar
+     */
     //Este metodo crea variables para cachar datos 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -54,8 +58,9 @@ public class customers extends HttpServlet {
         
         if(a!=null && !a.equals("")){
             int ai=Integer.parseInt(a);
+            /*Se crea el nuevo objeto de la entidad Customers, necesita parametros declarados anteriormente*/
             entidades.Customers ec=new Customers(ai,b,c,d,e,f,g,h);
-            
+            /*si la opcion es editar, se instancia el metodo edit del modelo CustomersFacadeLocal.java*/
             if(opc.equals("editar")){
 //                customersFacade.remove(ec); 
                 customersFacade.edit(ec); 
@@ -63,6 +68,7 @@ public class customers extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
         out.println("<script> window.location=\"index.html\"; </script>");
         }
+                /*en caso contrario, se instancia el metodo create del modelo CustomersFacadeLocal.java*/             
             }else{
                 customersFacade.create(ec); 
                 response.setContentType("text/html;charset=UTF-8");
@@ -123,7 +129,10 @@ public class customers extends HttpServlet {
             out.println("<th>Eliminar</th>");
             out.println("</tr>");
             
-            
+/**
+* Se llaman todos los registros para mostrarlos en una tabla
+* @return todos los datos que son almacenados en la BD
+*/            
             List<entidades.Customers> c1= customersFacade.findAll();
             for (int i = 0; i < c1.size(); i++) {
                 
