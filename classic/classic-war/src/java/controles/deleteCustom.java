@@ -17,7 +17,7 @@ import modelo.CustomersFacadeLocal;
 
 /**
  *
- * @author MiguelAngel
+ * @author MiguelAngel, Iobana Denis, Andrea
  */
 public class deleteCustom extends HttpServlet {
     @EJB
@@ -32,6 +32,9 @@ public class deleteCustom extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    /**
+     * @param a,b,c,d,e,f,g,h son parametros que se necesitan para el nuevo objeto de la entidad    
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String a = request.getParameter("a");
@@ -45,7 +48,9 @@ public class deleteCustom extends HttpServlet {
         
         if(a!=null && !a.equals("")){
             int ai=Integer.parseInt(a);
+/*Se crea el nuevo objeto de la entidad Customers, necesita parametros declarados anteriormente*/                        
             entidades.Customers ec=new Customers(ai,b,c,d,e,f,g,h);
+/*se instancia el metodo remove del modelo CustomersFacadeLocal.java para eliminar*/                        
                 customersFacade.remove(ec); 
             }
         
@@ -53,6 +58,7 @@ public class deleteCustom extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+/*definicion del html de la pagina*/            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
