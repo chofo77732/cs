@@ -17,7 +17,7 @@ import modelo.EmployeesFacadeLocal;
 
 /**
  *
- * @author Iobana Denis
+ * @author MiguelAngel, Iobana Denis, Andrea
  */
 public class deleteEmploy extends HttpServlet {
     @EJB
@@ -31,6 +31,10 @@ public class deleteEmploy extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     */
+    /**
+     * @param a,b,c,d,e,f,g,h son parametros que se necesitan para el nuevo objeto de la entidad    
+     * @param opc son las opciones que se pueden relizar
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -50,14 +54,16 @@ public class deleteEmploy extends HttpServlet {
         if(a!=null && !a.equals("")){
             
             int ai=Integer.parseInt(a);
+/*Se crea el nuevo objeto de la entidad Employees, necesita parametros declarados anteriormente*/                                    
             entidades.Employees p1=new Employees(ai,b,c,d,e,f,h);
-        
+/*se instancia el metodo remove del modelo EmployeesFacadeLocal.java para eliminar*/                            
             employeesFacade.remove(p1);
         }
         
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+/*definicion del html de la pagina*/                        
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
