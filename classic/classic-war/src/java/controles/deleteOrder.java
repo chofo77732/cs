@@ -18,7 +18,7 @@ import modelo.OrdersFacadeLocal;
 
 /**
  *
- * @author MiguelAngel
+ * @author MiguelAngel, Iobana Denis, Andrea
  */
 public class deleteOrder extends HttpServlet {
     @EJB
@@ -32,6 +32,10 @@ public class deleteOrder extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     */
+        /**
+     * @param a,b,c,d,e,f,g son parametros que se necesitan para el nuevo objeto de la entidad    
+     * @param opc, eli son las opciones que se pueden relizar
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -52,8 +56,9 @@ Date date = new Date();
             
             int ai=Integer.parseInt(a);
            int a2=Integer.parseInt(g); 
-           
+/*Se crea el nuevo objeto de la entidad Orders, necesita parametros declarados anteriormente*/                                  
             entidades.Orders p1=new Orders(ai, date, date, e, a2);
+/*se instancia el metodo remove del modelo OrdersFacadeLocal.java para eliminar*/                     
          ordersFacade.remove(p1);
 
         }
@@ -62,6 +67,7 @@ Date date = new Date();
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+/*definicion del html de la pagina*/                        
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
