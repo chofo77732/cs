@@ -1,8 +1,9 @@
 <%-- 
-    Document   : addpl
-    Created on : 9/08/2017, 10:01:08 PM
+    Document   : addOrder
+    Created on : 10/08/2017, 12:12:12 AM
     Author     : MiguelAngel,Andrea,Iobana
 --%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,10 +20,9 @@
     </head>
     <body>
         
-        /**
+         /**
      * @param a,b,c,d,e,f,g,h son parametros que se necesitan para el nuevo objeto de la entidad    
      */
-        
           <% String a = request.getParameter("a"); %>
     <% String edi = request.getParameter("edi"); %>
 
@@ -30,10 +30,10 @@
         
           <form action="pl" method="post">
               
- 
  /**
      * Creacion de tabla con parametros a,b,c,d,e,f,g,h del nuevo objeto de la entidad    
      */
+
               
     <table style="border: 1px solid black" class="table table-bordered table-responsive">
       
