@@ -18,7 +18,7 @@ import modelo.ProductsFacadeLocal;
 
 /**
  *
- * @author MiguelAngel
+ * @author MiguelAngel, Iobana Denis, Andrea
  */
 public class product extends HttpServlet {
     @EJB
@@ -32,6 +32,11 @@ public class product extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     */
+    
+    /**
+     * @param a,b,c,d,e,f,g,h,j son parametros que se necesitan para el nuevo objeto de la entidad
+     * @param opc, eli son las opciones que se pueden relizar
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -56,9 +61,9 @@ public class product extends HttpServlet {
             double hh=Double.valueOf(h).doubleValue();
             double ii=Double.valueOf(j).doubleValue();
             short s = Short.parseShort(g);
-            
+/*Se crea el nuevo objeto de la entidad Products, necesita parametros declarados anteriormente*/                        
             entidades.Products p1=new Products(a,b,c,d,e,f,s,hh,ii);
-        
+/*si la opcion es editar, se instancia el metodo edit del modelo ProductsFacadeLocal.java*/                
             if(opc.equals("editar")){
 //                customersFacade.remove(ec); 
                 productsFacade.edit(p1);
@@ -66,6 +71,7 @@ public class product extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
         out.println("<script> window.location=\"index.html\"; </script>");
         }
+/*en caso contrario, se instancia el metodo create del modelo ProductsFacadeLocal.java*/                     
             }else{
                productsFacade.create(p1);
                response.setContentType("text/html;charset=UTF-8");
@@ -81,6 +87,7 @@ public class product extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+/*definicion del html de la pagina*/                        
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -118,7 +125,10 @@ public class product extends HttpServlet {
             out.println("<th>Eliminar</th>");
             out.println("</tr>");
             
-            
+/**
+* Se llaman todos los registros para mostrarlos en una tabla
+* @return todos los datos que son almacenados en la BD
+*/                   
             List<entidades.Products> c1= productsFacade.findAll();
             for (int i = 0; i < c1.size(); i++) {
                 
@@ -153,6 +163,7 @@ public class product extends HttpServlet {
                 out.println("</td>");  
                 
                 out.println("<td>");
+/*definicion del formulario para insertar*/                                 
                 out.println("<form action=\"addProduct.jsp\">\n" +
 "<input type=\"hidden\" name=\"a\" value=\""+c1.get(i).getProductCode()+"\" />\n" +
 "<input type=\"hidden\" name=\"b\" value=\""+c1.get(i).getProductName()+"\" />\n" +
@@ -170,6 +181,7 @@ public class product extends HttpServlet {
                 
                 
                 out.println("<td>");
+/*definicion del formulario para eliminar*/                                 
                 out.println("<form action=\"deleteProduct\">\n" +
 "<input type=\"hidden\" name=\"a\" value=\""+c1.get(i).getProductCode()+"\" />\n" +
 "<input type=\"hidden\" name=\"b\" value=\""+c1.get(i).getProductName()+"\" />\n" +
