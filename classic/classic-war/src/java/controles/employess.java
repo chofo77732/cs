@@ -18,7 +18,7 @@ import modelo.EmployeesFacadeLocal;
 
 /**
  *
- * @author Iobana Denis
+ * @author MiguelAngel, Iobana Denis, Andrea 
  */
 public class employess extends HttpServlet {
     @EJB
@@ -32,6 +32,11 @@ public class employess extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     */
+    
+    /**
+     * @param a,b,c,d,e,f,g,h son parametros que se necesitan para el nuevo objeto de la entidad
+     * @param opc son las opciones que se pueden relizar
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -51,8 +56,9 @@ public class employess extends HttpServlet {
         if(a!=null && !a.equals("")){
             
             int ai=Integer.parseInt(a);
+/*Se crea el nuevo objeto de la entidad Employees, necesita parametros declarados anteriormente*/                        
             entidades.Employees p1=new Employees(ai,b,c,d,e,f,h);
-        
+/*si la opcion es editar, se instancia el metodo edit del modelo EmployeesFacadeLocal.java*/                
             if(opc.equals("editar")){
 //                customersFacade.remove(ec); 
                 employeesFacade.edit(p1);
@@ -60,6 +66,7 @@ public class employess extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
         out.println("<script> window.location=\"index.html\"; </script>");
         }
+/*en caso contrario, se instancia el metodo create del modelo EmployeesFacadeLocal.java*/                                     
             }else{
                employeesFacade.create(p1);
                                response.setContentType("text/html;charset=UTF-8");
@@ -72,6 +79,7 @@ public class employess extends HttpServlet {
         
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+/*definicion del html de la pagina*/                        
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -106,7 +114,10 @@ public class employess extends HttpServlet {
             out.println("<th>Eliminar</th>");
             out.println("</tr>");
             
-            
+/**
+* Se llaman todos los registros para mostrarlos en una tabla
+* @return todos los datos que son almacenados en la BD
+*/              
             List<entidades.Employees> c1= employeesFacade.findAll();
             for (int i = 0; i < c1.size(); i++) {
                 
@@ -139,7 +150,7 @@ public class employess extends HttpServlet {
    
                 out.println("<td>");    
 
-                
+/*definicion del formulario para insertar*/                                
                 out.println("<form action=\"addEmploy.jsp\">\n" +
 "<input type=\"hidden\" name=\"a\" value=\""+c1.get(i).getEmployeeNumber()+"\" />\n" +
 "<input type=\"hidden\" name=\"b\" value=\""+c1.get(i).getLastName()+"\" />\n" +
@@ -158,7 +169,7 @@ public class employess extends HttpServlet {
                 
                                 out.println("<td>");    
 
-                
+/*definicion del formulario para eliminar*/                                
                 out.println("<form action=\"deleteEmploy\">\n" +
 "<input type=\"hidden\" name=\"a\" value=\""+c1.get(i).getEmployeeNumber()+"\" />\n" +
 "<input type=\"hidden\" name=\"b\" value=\""+c1.get(i).getLastName()+"\" />\n" +
