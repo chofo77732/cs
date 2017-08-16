@@ -17,7 +17,7 @@ import modelo.ProductlinesFacadeLocal;
 
 /**
  *
- * @author MiguelAngel
+ * @author MiguelAngel, Iobana Denis, Andrea
  */
 public class deletepl extends HttpServlet {
     @EJB
@@ -32,6 +32,10 @@ public class deletepl extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    /**
+     * @param a parametro que se necesita para el nuevo objeto de la entidad    
+     * @param opc, eli son las opciones que se pueden relizar
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                                 String a = request.getParameter("a");
@@ -43,8 +47,9 @@ public class deletepl extends HttpServlet {
 
         
         if(a!=null && !a.equals("")){
-            
+/*Se crea el nuevo objeto de la entidad ProductLines, necesita parametros declarados anteriormente*/                                    
    entidades.Productlines p1=new Productlines(a);
+/*se instancia el metodo remove del modelo ProductLinesFacadeLocal.java para eliminar*/                           
         productlinesFacade.remove(p1);
 
         }
@@ -53,6 +58,7 @@ public class deletepl extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+/*definicion del html de la pagina*/                        
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
