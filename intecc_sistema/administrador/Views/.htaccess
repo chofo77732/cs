@@ -1,5 +1,0 @@
-php_value post_max_size 100M
-php_value upload_max_filesize 100M 
-php_value apc.max_file_size 100M 
-php_value max_allowed_packet 100M 
-
