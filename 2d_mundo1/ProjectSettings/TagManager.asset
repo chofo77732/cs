@@ -6,6 +6,15 @@ TagManager:
   tags:
   - prueba
   - enemigo
+  - moneda
+  - puerta
+  - Area
+  - dialogo
+  - chest
+  - count_coin
+  - count_chest
+  - button_count
+  - mensaje_chest
   layers:
   - Default
   - TransparentFX
@@ -15,8 +24,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - vista_jugador
+  - capa_2
   - 
   - 
   - 
@@ -42,4 +51,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: player
+    uniqueID: 1882257995
     locked: 0

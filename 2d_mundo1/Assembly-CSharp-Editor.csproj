@@ -51,6 +51,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\dialog\Scripts\Editor\AjustarAlGridCustomInspector.cs" />
+     <Compile Include="Assets\dialog\Scripts\Editor\AutoAjustarAlGridCustomInspector.cs" />
+     <Compile Include="Assets\dialog\Scripts\Editor\ItemDatosCustomInspector.cs" />
+     <Compile Include="Assets\dialog\Scripts\Editor\NPCCustomInspector.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Editor\CustomTiledImporterAttribute.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Editor\ICustomTiledImporter.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Editor\ImportTiled2Unity.cs" />

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ee65d492c44fe4a80439b579f01b2b, type: 3}
+  m_Name: Items
+  m_EditorClassIdentifier: 
+  datosItems:
+  - ID: 1
+    tipoDeItem: 0
+    nombre: Vasija Ball
+    descripcion: "Peque\xF1a vasija utilizada para capturar monstruos"
+  - ID: 2
+    tipoDeItem: 0
+    nombre: "Poci\xF3n"
+    descripcion: Restaura 10 puntos de salud
