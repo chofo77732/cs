@@ -1,0 +1,44 @@
+﻿# Tiled2Unity generated file. Do not modify by hand.
+# Wavefront file for 'puerta_mesh_0002.obj'
+
+# Vertices (Count = 16)
+v 0 -1 0
+v -1 -1 0
+v -1 0 0
+v 0 0 0
+v -1 -1 0
+v -2 -1 0
+v -2 0 0
+v -1 0 0
+v 0 -2 0
+v -1 -2 0
+v -1 -1 0
+v 0 -1 0
+v -1 -2 0
+v -2 -2 0
+v -2 -1 0
+v -1 -1 0
+
+# Texture cooridinates (Count = 9)
+vt 0.175 0.2222222
+vt 0.2 0.2222222
+vt 0.2 0.25
+vt 0.175 0.25
+vt 0.225 0.2222222
+vt 0.225 0.25
+vt 0.175 0.1944444
+vt 0.2 0.1944444
+vt 0.225 0.1944444
+
+# Normal
+vn 0 0 -1
+
+# Mesh description
+g puerta_mesh_0002
+
+# Faces
+f 1/1/1 2/2/1 3/3/1 4/4/1
+f 5/2/1 6/5/1 7/6/1 8/3/1
+f 9/7/1 10/8/1 11/2/1 12/1/1
+f 13/8/1 14/9/1 15/5/1 16/2/1
+

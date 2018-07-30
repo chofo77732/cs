@@ -19,6 +19,10 @@ public class chest : MonoBehaviour {
     public string mensaje3;
     public string mensaje4;
 
+	public AudioClip item_clip;
+
+	AudioSource audio;
+
  	int i = 0;
 	// Use this for initialization
 
@@ -28,7 +32,7 @@ public class chest : MonoBehaviour {
 
 		//chest_info = info_chest.GetComponent<mensaje_chest>();
 		btn1 = boton.GetComponent<Button>();
-
+		audio = GetComponent<AudioSource>();
 		btn1.onClick.AddListener(TaskOnClick);
 	}
 
@@ -48,8 +52,11 @@ public class chest : MonoBehaviour {
 				campoDeTexto.text = mensaje3;
 
 			 }else if(i==3){
+			 	audio.clip = item_clip;
+				audio.Play();
 				campoDeTexto.text = string.Empty;
 				campoDeTexto.text = mensaje4;
+				
 
 			 }else if(i==4){
 			 	i=0;
@@ -57,6 +64,7 @@ public class chest : MonoBehaviour {
 				ventanaDialogo.SetActive(false);
 				menu.SetActive(true);
 				Time.timeScale = 1; 
+				gameObject.SetActive(false);
 			 }
 			 i++;
     }

@@ -15,6 +15,9 @@ TagManager:
   - count_chest
   - button_count
   - mensaje_chest
+  - item
+  - warp
+  - checkpoint
   layers:
   - Default
   - TransparentFX
